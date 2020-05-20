@@ -54,7 +54,7 @@ __Important Note: You must import `createElement` at the start of each JSX file!
 
 ## TODO
 
-* Figure out how to have webpack auto-include the import statement in each JSX file
+* Figure out how to have webpack auto-include the import statement in each JSX file (https://babeljs.io/docs/en/babel-preset-react#react-automatic-runtime)
 * Add nginx / docker support for super easy deploys
 * We are exporting gzipped files, have nginx support those
 * Figure out a scheme for static site generation
