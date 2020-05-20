@@ -1,5 +1,5 @@
 /* eslint-disable */
-const path = require( 'path' );
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
@@ -11,11 +11,11 @@ module.exports = {
     context: __dirname,
     entry: './src/index.jsx',
     output: {
-        path: path.resolve( __dirname, 'dist' ),
+        path: path.resolve(__dirname, 'dist'),
         filename: 'index.js',
     },
     devServer: {
-        contentBase: path.resolve(__dirname, 'dist' )
+        contentBase: path.resolve(__dirname, 'dist')
     },
     optimization: {
         minimize: true,
@@ -28,7 +28,7 @@ module.exports = {
         new MiniCssExtractPlugin(),
         new CompressionPlugin(),
         new CopyPlugin({
-            patterns: ['./src/assets/*.html']
+            patterns: [{ from: './src/assets/index.html', to: '.' }]
         })
     ],
     module: {

@@ -5,7 +5,7 @@ import './style.css'
 
 const CountingButton = () => {
 
-    let state = { count: 3 };
+    let state = { count: 0 };
 
     let incr = (elem) => {
         state.count += 1;
