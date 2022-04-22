@@ -1,27 +1,29 @@
 /* eslint-disable */
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
     context: __dirname,
     entry: './src/index.jsx',
+    mode: 'development',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.js',
     },
     devServer: {
-        contentBase: path.resolve(__dirname, 'dist')
+        static: path.resolve(__dirname, 'dist')
+        // contentBase: path.resolve(__dirname, 'dist')
     },
     optimization: {
         minimize: true,
         minimizer: [
-            new OptimizeCSSAssetsPlugin({}),
             new TerserPlugin(),
+            new CssMinimizerPlugin(),
         ],
     },
     plugins: [
@@ -29,7 +31,8 @@ module.exports = {
         new CompressionPlugin(),
         new CopyPlugin({
             patterns: [{ from: './src/assets/index.html', to: '.' }]
-        })
+        }),
+        // new ESLintPlugin({})
     ],
     module: {
         rules: [
@@ -38,7 +41,6 @@ module.exports = {
                 exclude: /node_modules/,
                 use: [
                     'babel-loader',
-                    'eslint-loader'
                 ]
             },
             {

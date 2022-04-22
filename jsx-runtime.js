@@ -1,5 +1,7 @@
-function createElement(tagName, attrs = {}, ...children) {
-    // console.log(tagName, typeof tagName, attrs, children)
+function createElement(tagName, attrs) {
+    console.log("in createElement", tagName, attrs)
+
+    const { children } = attrs
 
     // If tag is a fragment, just return child tags
     if (tagName === 'fragment') return children
@@ -21,12 +23,17 @@ function createElement(tagName, attrs = {}, ...children) {
     }
 
     // Attach child tags to parent tag
-    for (const child of children) {
-        if (Array.isArray(child)) elem.append(...child)
-        else elem.append(child)
+    if (Array.isArray(children)) {
+        for (const child of children) {
+            if (Array.isArray(child)) elem.append(...child)
+            else elem.append(child)
+        }
+    } else {
+        elem.append(children)
     }
+
 
     return elem
 }
 
-export default createElement;
+export { createElement as jsx, createElement as jsxs };

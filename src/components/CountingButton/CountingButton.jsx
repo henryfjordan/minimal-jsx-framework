@@ -1,6 +1,3 @@
-/** @jsx createElement */
-import createElement from '../../jsx-runtime.js';
-
 import './style.css'
 
 const CountingButton = () => {

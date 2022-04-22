@@ -1,14 +1,11 @@
 {
   "plugins": [
-    [
-      "@babel/plugin-transform-react-jsx", 
-      { 
-        "pragma": "createElement",
-        "pragmaFrag": "'fragment'",
-        "runtime": "classic" 
-      }
-    ],
+    ["@babel/plugin-transform-react-jsx", {
+      "importSource": "",
+      "runtime": "automatic"
+    }],
     "@babel/plugin-syntax-dynamic-import"
   ],
+  // "presets": ["@babel/preset-typescript"],
   "comments": false
 }
