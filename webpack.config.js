@@ -17,7 +17,6 @@ module.exports = {
     },
     devServer: {
         static: path.resolve(__dirname, 'dist')
-        // contentBase: path.resolve(__dirname, 'dist')
     },
     optimization: {
         minimize: true,
@@ -32,7 +31,7 @@ module.exports = {
         new CopyPlugin({
             patterns: [{ from: './src/assets/index.html', to: '.' }]
         }),
-        // new ESLintPlugin({})
+        new ESLintPlugin()
     ],
     module: {
         rules: [
