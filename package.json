@@ -31,8 +31,9 @@
     "webpack-dev-server": "^4.8.1"
   },
   "scripts": {
-    "build": "./node_modules/.bin/webpack --mode=production",
-    "watch": "./node_modules/.bin/webpack-dev-server --open",
+    "build": "./node_modules/.bin/babel example --out-dir lib --copy-files && sed 's|./jsx-runtime.js/jsx-runtime|./jsx-runtime.js|g' lib/index.js > lib/index.tmp && mv lib/index.tmp lib/index.js",
+    "run": "node lib/index.js",
+    "start": "npm run build && npm run run",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
