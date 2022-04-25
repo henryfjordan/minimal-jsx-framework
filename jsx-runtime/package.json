@@ -1,0 +1,15 @@
+{
+  "name": "jsx-runtime",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jsx-runtime.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./jsx-runtime": "./jsx-runtime.js"
+  }
+}

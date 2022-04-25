@@ -1,8 +1,8 @@
-import './assets/normalize.css';
-import './assets/skeleton.css';
+// import './assets/normalize.css';
+// import './assets/skeleton.css';
 
-import Title from './components/Title.jsx';
-import CountingButton from './components/CountingButton/CountingButton.jsx';
+import Title from './components/Title.js';
+import CountingButton from './components/CountingButton/CountingButton.js';
 
 const app = (
     <div class="container">

@@ -1,7 +1,7 @@
 {
   "plugins": [
     ["@babel/plugin-transform-react-jsx", {
-      "importSource": "./jsx-runtime.js",
+      "importSource": "jsx-runtime",
       "runtime": "automatic"
     }]
     // "@babel/plugin-syntax-dynamic-import"
