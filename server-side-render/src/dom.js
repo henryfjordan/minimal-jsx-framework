@@ -74,8 +74,6 @@ export class HTMLElementSSR {
   }
 
   addEventListener(_type, _listener, _options) {
-    console.log("event listener", _type, _listener, _options);
-
     if (this.isSelfClosing)
       this._ssr = this._ssr.replace(
         /(^<[a-z0-9]+ )(.+)/gm,
@@ -89,8 +87,19 @@ export class HTMLElementSSR {
   }
 }
 
-export default class DocumentSSR {
+export function render(component) {
+  if (component === null || component === false || typeof component === 'undefined') return []
+  if (typeof component === 'string' || typeof component === 'number') return component.toString()
+  if (component.tagName) return component
+  if (typeof component === 'function' ) return render(component())
+  
+  // TODO: Handle rendering fragments directly?
+  // if (Array.isArray(component)) return component
+}
+
+export class DocumentSSR {
   createElement(tag) {
     return new HTMLElementSSR(tag);
   }
 }
+
